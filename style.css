@@ -101,3 +101,14 @@ button:hover {
     width: 100%;
   }
 }
+footer {
+  background-color: #000; /* Black background */
+  color: #fff; /* White text color */
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 14px;
+}
+
