@@ -34,8 +34,8 @@ document.getElementById("accessForm").addEventListener("submit", function (e) {
       saveUsedUsernames(); // Persist the used usernames to localStorage
       responseDiv.innerHTML = `
         <p style="color: green; background-color: white;">
-          🎉 Congratulations, ${username}! You are registered!<br>
-          You are ready to start your journey toward financial freedom.<br>
+          🎉 Hi, our system shows you're registered.  You are allowed to join class. >
+          Please do not share your username with non-registered to avoid penalty.  Our system can detect it.<br>
           <a href="#" target="_blank" style="color: red; text-decoration: none; background-color:white;">Join class.</a>
         </p>`;
     } else {
@@ -43,15 +43,13 @@ document.getElementById("accessForm").addEventListener("submit", function (e) {
       responseDiv.innerHTML = `
         <p style="color: orange;">
           ⚠️ Sorry, ${username} belongs to someone else. Get yours by registering. <br>
-          If you are registered and received this erro, contact admin immediately. Thank you
+          If you are registered and received this error, contact admin immediately. Thank you
         </p>`;
     }
   } else {
     responseDiv.innerHTML = `
       <p style="color: red;">
-        🚫 Sorry, ${username}. Your username is not in our server. Please register or contact admin<br>
-        But don't give up—please contact support or double-check your username.<br>
-        We're here to help you on your path to success!
+       ❌️ERROR! Our system shows you're not registered. If you're registered and unable to join class,<br>contact admin ASAP!
       </p>`;
   }
 });
