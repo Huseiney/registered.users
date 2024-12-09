@@ -36,7 +36,7 @@ document.getElementById("accessForm").addEventListener("submit", function (e) {
         <p style="color: green; background-color: white;">
           🎉 Congratulations, ${username}! You are registered!<br>
           You are ready to start your journey toward financial freedom.<br>
-          <a href="#" target="_blank" style="color: #00ff00; text-decoration: underline;">Join the Google Meet</a>
+          <a href="#" target="_blank" style="color: red; text-decoration: none; background-color:white;">Join class.</a>
         </p>`;
     } else {
       const remainingTime = Math.ceil((18000000 - (new Date().getTime() - usedUsernames[username])) / 3600000);
