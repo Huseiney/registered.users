@@ -1,9 +1,14 @@
 // Registered usernames and the master username
 const registeredUsers = ["ab34", "zl23", "jn21", "dd22", "ds54"];
-const masterUsername = "btc24";
+const masterUsername = "masterUser";
 
-// Track used usernames with timestamps
-const usedUsernames = {};
+// Load used usernames from localStorage
+const usedUsernames = JSON.parse(localStorage.getItem("usedUsernames")) || {};
+
+// Function to save used usernames to localStorage
+function saveUsedUsernames() {
+  localStorage.setItem("usedUsernames", JSON.stringify(usedUsernames));
+}
 
 // Function to check if a username is reusable
 function canReuseUsername(username) {
@@ -26,19 +31,20 @@ document.getElementById("accessForm").addEventListener("submit", function (e) {
   if (registeredUsers.includes(username)) {
     if (canReuseUsername(username)) {
       usedUsernames[username] = new Date().getTime(); // Record the current timestamp
+      saveUsedUsernames(); // Persist the used usernames to localStorage
       responseDiv.innerHTML = `
-        <p style="color: white; background-color: red;">
+        <p style="color: green;">
           🎉 Congratulations, ${username}! You are registered!<br>
           You are ready to start your journey toward financial freedom.<br>
-          <a href="#" target="_blank" style="color: #00ff00; text-decoration: underline;">Join the Google Meet</a>
+          <a href="https://meet.google.com/your-meet-link" target="_blank" style="color: #00ff00; text-decoration: underline;">Join the Google Meet</a>
         </p>`;
     } else {
       const remainingTime = Math.ceil((18000000 - (new Date().getTime() - usedUsernames[username])) / 3600000);
       responseDiv.innerHTML = `
         <p style="color: orange;">
-          ⚠️ Sorry, ${username} can be used by registered student only..<br>
-          Please register to receive your own and trying again.<br>
-          If you are registered and unable to receive link, contact the admin.
+          ⚠️ Sorry, ${username} has already been used to access the link.<br>
+          Please wait ${remainingTime} hour(s) before trying again.<br>
+          If you are authorized, use the master username or contact support.
         </p>`;
     }
   } else {
