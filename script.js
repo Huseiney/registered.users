@@ -1,6 +1,6 @@
 // Registered usernames and the master username
 const registeredUsers = ["ab34", "zl23", "jn21", "dd22", "ds54"];
-const masterUsername = "masterUser";
+const masterUsername = "master24";
 
 // Load used usernames from localStorage
 const usedUsernames = JSON.parse(localStorage.getItem("usedUsernames")) || {};
@@ -33,18 +33,17 @@ document.getElementById("accessForm").addEventListener("submit", function (e) {
       usedUsernames[username] = new Date().getTime(); // Record the current timestamp
       saveUsedUsernames(); // Persist the used usernames to localStorage
       responseDiv.innerHTML = `
-        <p style="color: green;">
+        <p style="color: green; background-color: white;">
           🎉 Congratulations, ${username}! You are registered!<br>
           You are ready to start your journey toward financial freedom.<br>
-          <a href="https://meet.google.com/your-meet-link" target="_blank" style="color: #00ff00; text-decoration: underline;">Join the Google Meet</a>
+          <a href="#" target="_blank" style="color: #00ff00; text-decoration: underline;">Join the Google Meet</a>
         </p>`;
     } else {
       const remainingTime = Math.ceil((18000000 - (new Date().getTime() - usedUsernames[username])) / 3600000);
       responseDiv.innerHTML = `
         <p style="color: orange;">
-          ⚠️ Sorry, ${username} has already been used to access the link.<br>
-          Please wait ${remainingTime} hour(s) before trying again.<br>
-          If you are authorized, use the master username or contact support.
+          ⚠️ Sorry, ${username} belongs to someone else. Get yours by registering. <br>
+          If you are registered and received this erro, contact admin immediately. Thank you
         </p>`;
     }
   } else {
