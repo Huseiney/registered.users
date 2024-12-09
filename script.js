@@ -27,10 +27,10 @@ document.getElementById("accessForm").addEventListener("submit", function (e) {
     if (canReuseUsername(username)) {
       usedUsernames[username] = new Date().getTime(); // Record the current timestamp
       responseDiv.innerHTML = `
-        <p style="color: green;">
+        <p style="color: white; background-color: red;">
           🎉 Congratulations, ${username}! You are registered!<br>
           You are ready to start your journey toward financial freedom.<br>
-          <a href="https://meet.google.com/your-meet-link" target="_blank" style="color: #00ff00; text-decoration: underline;">Join the Google Meet</a>
+          <a href="#" target="_blank" style="color: #00ff00; text-decoration: underline;">Join the Google Meet</a>
         </p>`;
     } else {
       const remainingTime = Math.ceil((18000000 - (new Date().getTime() - usedUsernames[username])) / 3600000);
