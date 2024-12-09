@@ -33,7 +33,7 @@ document.getElementById("accessForm").addEventListener("submit", function (e) {
       usedUsernames[username] = new Date().getTime(); // Record the current timestamp
       saveUsedUsernames(); // Persist the used usernames to localStorage
       responseDiv.innerHTML = `
-        <p style="background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; animation: bounceIn 2s ease-in-out;">
+        <p style="background-color: red; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; animation: bounceIn 2s ease-in-out;">
           🎉 Hi, our system shows you're registered.  You are allowed to join class. >
           Please do not share your username with non-registered to avoid penalty.  Our system can detect it.<br>
           <a href="#" target="_blank" style="color: red; text-decoration: none; background-color:white;">Join class.</a>
