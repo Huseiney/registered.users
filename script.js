@@ -49,7 +49,7 @@ document.getElementById("accessForm").addEventListener("submit", function (e) {
   } else {
     responseDiv.innerHTML = `
       <p style="color: red;">
-        🚫 Sorry, ${username}. The server says you're not registered.<br>
+        🚫 Sorry, ${username}. Your username is not in our server. Please register or contact admin<br>
         But don't give up—please contact support or double-check your username.<br>
         We're here to help you on your path to success!
       </p>`;
