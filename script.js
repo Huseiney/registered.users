@@ -1,5 +1,5 @@
 // Registered usernames and the master username
-const registeredUsers = ["ab34", "zl23", "jn21", "dd22", "ds54"];
+const registeredUsers = ["ab34", "zl23", "jn21", "dd22", "ds54", "ss27"];
 const masterUsername = "master24";
 
 // Load used usernames from localStorage
