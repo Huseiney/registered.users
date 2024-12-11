@@ -33,7 +33,7 @@ document.getElementById("accessForm").addEventListener("submit", function (e) {
     responseDiv.innerHTML = `
       <p style="color: green;">
         🎉 This username belongs to the Admin. You are only allowed to use if yours is not working.<br>
-        <a href="#" target="_blank" style="color: white; text-decoration: dotted; text-decoration-color: red;">Join Class Now</a>
+        <a href="#" target="_blank" style="color: white; text-decoration: none; border-style: double; border-radius: 10px; border-color: red;">Join Class Now</a>
       </p>`;
     return;
   }
