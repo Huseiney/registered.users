@@ -46,7 +46,7 @@ document.getElementById("accessForm").addEventListener("submit", function (e) {
         <p style="color: green;">
           🎉 Congratulations, ${username}! You are registered!<br>
           Welcome to the class.<br>
-          <a href="#" target="_blank" style="color: white; text-decoration: dotted; text-decoration-color: red;">Join Class Now</a>
+          <a href="#" target="_blank" style="color: white; text-decoration: none; border-style: double; border-radius: 10px; border-color: red;">Join Class Now</a>
         </p>`;
     } else {
       const remainingTime = Math.ceil((18000000 - (new Date().getTime() - usedUsernames[username])) / 3600000);
