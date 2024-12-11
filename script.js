@@ -1,6 +1,7 @@
 // Registered usernames and the master username
 const registeredUsers = ["ab34", "zl23", "jn21", "dd22", "ds54", "ss27", "vv54"];
 const masterUsername = "master8081";
+
 // Load used usernames from localStorage
 const usedUsernames = JSON.parse(localStorage.getItem("usedUsernames")) || {};
 
@@ -20,11 +21,22 @@ function canReuseUsername(username) {
   // Check if 5 hours (18000000 milliseconds) have passed since last use
   return currentTime - lastUsedTime >= 18000000;
 }
+
 // Event listener for form submission
 document.getElementById("accessForm").addEventListener("submit", function (e) {
   e.preventDefault();
   const username = document.getElementById("username").value.trim();
   const responseDiv = document.getElementById("response");
+
+  // Handle master username explicitly
+  if (username === masterUsername) {
+    responseDiv.innerHTML = `
+      <p style="color: green;">
+        🎉 This username belongs to the Admin. You are only allowed to use if yours is not working.<br>
+        <a href="#" target="_blank" style="color: white; text-decoration: dotted; text-decoration-color: red;">Join Class Now</a>
+      </p>`;
+    return;
+  }
 
   if (registeredUsers.includes(username)) {
     if (canReuseUsername(username)) {
@@ -47,7 +59,7 @@ document.getElementById("accessForm").addEventListener("submit", function (e) {
   } else {
     responseDiv.innerHTML = `
       <p style="color: red;">
-        🚫 Sorry, this ${username} is not registered. Please register to receive a unique username, its just 1000 kes. Thank you.
+        🚫 Sorry, this ${username} is not registered. Please register to receive a unique username, it's just 1000 KES. Thank you.
       </p>`;
   }
 });
