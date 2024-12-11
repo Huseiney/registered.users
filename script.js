@@ -1,6 +1,25 @@
 // Registered usernames and the master username
 const registeredUsers = ["ab34", "zl23", "jn21", "dd22", "ds54", "ss27", "vv54"];
 const masterUsername = "master8081";
+// Load used usernames from localStorage
+const usedUsernames = JSON.parse(localStorage.getItem("usedUsernames")) || {};
+
+// Function to save used usernames to localStorage
+function saveUsedUsernames() {
+  localStorage.setItem("usedUsernames", JSON.stringify(usedUsernames));
+}
+
+// Function to check if a username is reusable
+function canReuseUsername(username) {
+  if (username === masterUsername) return true; // Allow master username to be reused anytime
+  if (!usedUsernames[username]) return true; // Username has not been used before
+
+  const lastUsedTime = usedUsernames[username];
+  const currentTime = new Date().getTime();
+
+  // Check if 5 hours (18000000 milliseconds) have passed since last use
+  return currentTime - lastUsedTime >= 18000000;
+}
 // Event listener for form submission
 document.getElementById("accessForm").addEventListener("submit", function (e) {
   e.preventDefault();
