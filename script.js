@@ -30,44 +30,52 @@ document.getElementById("accessForm").addEventListener("submit", function (e) {
 
   if (registeredUsers.includes(username)) {
     if (canReuseUsername(username)) {
-      usedUsernames[username] = new Date().getTime(); // Record the current timestamp
-      saveUsedUsernames(); // Persist the used usernames to localStorage
+      // Record the current timestamp and persist data
+      usedUsernames[username] = new Date().getTime();
+      saveUsedUsernames();
+
+      // Success message
       responseDiv.innerHTML = `
-  <div style="
-      border: 2px solid #4CAF50;
-      border-radius: 8px;
-      background-color: #f0f8ff;
-      padding: 15px;
-      margin-top: 20px;
-      font-family: Arial, sans-serif;
-      color: #333;
-      text-align: center;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  ">
-    <h3 style="color: #4CAF50; font-size: 1.5em;">🎉 Congratulations, ${username}!</h3>
-    <p style="font-size: 1.2em; margin: 10px 0;">
-      You are one of our student because you are registered.
-    </p>
-    <a href="#" target="_blank" style="
-        display: inline-block;
-        margin-top: 10px;
-        padding: 10px 20px;
-        background-color: #4CAF50;
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-        font-weight: bold;
-    ">Join the class</a>
-  </div>`;
-        <p style="color: orange;">
-          ⚠️ Sorry, ${username} belongs to someone else. Get yours by registering. <br>
-          If you are registered and received this error, contact admin immediately. Thank you
+        <div style="
+          border: 2px solid #4CAF50;
+          border-radius: 8px;
+          background-color: #f0f8ff;
+          padding: 15px;
+          margin-top: 20px;
+          font-family: Arial, sans-serif;
+          color: #333;
+          text-align: center;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        ">
+          <h3 style="color: #4CAF50; font-size: 1.5em;">🎉 Congratulations, ${username}!</h3>
+          <p style="font-size: 1.2em; margin: 10px 0;">
+            You are one of our students because you are registered.
+          </p>
+          <a href="#" target="_blank" style="
+              display: inline-block;
+              margin-top: 10px;
+              padding: 10px 20px;
+              background-color: #4CAF50;
+              color: white;
+              text-decoration: none;
+              border-radius: 5px;
+              font-weight: bold;
+          ">Join the class</a>
+        </div>`;
+    } else {
+      // Locked username error
+      responseDiv.innerHTML = `
+        <p style="color: orange; font-family: Arial, sans-serif; margin-top: 20px;">
+          ⚠️ Sorry, ${username} belongs to someone else. Get yours by registering.<br>
+          If you are registered and received this error, contact admin immediately. Thank you.
         </p>`;
     }
   } else {
+    // Unregistered user error
     responseDiv.innerHTML = `
-      <p style="color: red;">
-       ❌️ERROR! your name is not in our system. If you're registered and unable to join class,<br>contact admin ASAP!
+      <p style="color: red; font-family: Arial, sans-serif; margin-top: 20px;">
+        ❌️ ERROR! Your name is not in our system.<br>
+        If you're registered and unable to join class, contact admin ASAP!
       </p>`;
   }
 });
