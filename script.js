@@ -1,6 +1,6 @@
 // Registered usernames and the master username
 const registeredUsers = ["ab34", "zl23", "jn21", "dd22", "ds54", "ss27", "vv54"];
-const masterUsername = "master24";
+const masterUsername = "master8081";
 
 // Load used usernames from localStorage
 const usedUsernames = JSON.parse(localStorage.getItem("usedUsernames")) || {};
@@ -30,52 +30,27 @@ document.getElementById("accessForm").addEventListener("submit", function (e) {
 
   if (registeredUsers.includes(username)) {
     if (canReuseUsername(username)) {
-      // Record the current timestamp and persist data
-      usedUsernames[username] = new Date().getTime();
-      saveUsedUsernames();
-
-      // Success message
+      usedUsernames[username] = new Date().getTime(); // Record the current timestamp
+      saveUsedUsernames(); // Persist the used usernames to localStorage
       responseDiv.innerHTML = `
-        <div style="
-          border: 2px solid #4CAF50;
-          border-radius: 8px;
-          background-color: #f0f8ff;
-          padding: 15px;
-          margin-top: 20px;
-          font-family: Arial, sans-serif;
-          color: #333;
-          text-align: center;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        ">
-          <h3 style="color: #4CAF50; font-size: 1.5em;">🎉 Congratulations, ${username}!</h3>
-          <p style="font-size: 1.2em; margin: 10px 0;">
-            You are one of our students because you are registered.
-          </p>
-          <a href="#" target="_blank" style="
-              display: inline-block;
-              margin-top: 10px;
-              padding: 10px 20px;
-              background-color: #4CAF50;
-              color: white;
-              text-decoration: none;
-              border-radius: 5px;
-              font-weight: bold;
-          ">Join the class</a>
-        </div>`;
+        <p style="color: green;">
+          🎉 Congratulations, ${username}! You are registered!<br>
+          Welcome to the class.<br>
+          <a href="https://meet.google.com/your-meet-link" target="_blank" style="color: #00ff00; text-decoration: underline;">Join Class Now</a>
+        </p>`;
     } else {
-      // Locked username error
+      const remainingTime = Math.ceil((18000000 - (new Date().getTime() - usedUsernames[username])) / 3600000);
       responseDiv.innerHTML = `
-        <p style="color: orange; font-family: Arial, sans-serif; margin-top: 20px;">
-          ⚠️ Sorry, ${username} belongs to someone else. Get yours by registering.<br>
-          If you are registered and received this error, contact admin immediately. Thank you.
+        <p style="color: orange;">
+          ⚠️ Sorry, ${username} has already been used to access the link.<br>
+          Please wait ${remainingTime} hour(s) before trying again.<br>
+          If you are authorized, use the master username or contact support.
         </p>`;
     }
   } else {
-    // Unregistered user error
     responseDiv.innerHTML = `
-      <p style="color: red; font-family: Arial, sans-serif; margin-top: 20px;">
-        ❌️ ERROR! Your name is not in our system.<br>
-        If you're registered and unable to join class, contact admin ASAP!
+      <p style="color: red;">
+        🚫 Sorry, this ${username} is not registered. Please register and receive a unique username, thank you.
       </p>`;
   }
 });
