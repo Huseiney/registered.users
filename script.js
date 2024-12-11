@@ -33,14 +33,32 @@ document.getElementById("accessForm").addEventListener("submit", function (e) {
       usedUsernames[username] = new Date().getTime(); // Record the current timestamp
       saveUsedUsernames(); // Persist the used usernames to localStorage
       responseDiv.innerHTML = `
-        <p style="background-color: red; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; animation: bounceIn 2s ease-in-out;">
-          🎉 Hi, our system shows you're registered.  You are allowed to join class. >
-          Please do not share your username with non-registered to avoid penalty.  Our system can detect it.<br>
-          <a href="#" target="_blank" style="color: red; text-decoration: none; background-color:white;">Join class.</a>
-        </p>`;
-    } else {
-      const remainingTime = Math.ceil((18000000 - (new Date().getTime() - usedUsernames[username])) / 3600000);
-      responseDiv.innerHTML = `
+  <div style="
+      border: 2px solid #4CAF50;
+      border-radius: 8px;
+      background-color: #f0f8ff;
+      padding: 15px;
+      margin-top: 20px;
+      font-family: Arial, sans-serif;
+      color: #333;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  ">
+    <h3 style="color: #4CAF50; font-size: 1.5em;">🎉 Congratulations, ${username}!</h3>
+    <p style="font-size: 1.2em; margin: 10px 0;">
+      You are one of our student because you are registered.
+    </p>
+    <a href="#" target="_blank" style="
+        display: inline-block;
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+    ">Join the class</a>
+  </div>`;
         <p style="color: orange;">
           ⚠️ Sorry, ${username} belongs to someone else. Get yours by registering. <br>
           If you are registered and received this error, contact admin immediately. Thank you
@@ -49,7 +67,7 @@ document.getElementById("accessForm").addEventListener("submit", function (e) {
   } else {
     responseDiv.innerHTML = `
       <p style="color: red;">
-       ❌️ERROR! Our system shows you're not registered. If you're registered and unable to join class,<br>contact admin ASAP!
+       ❌️ERROR! your name is not in our system. If you're registered and unable to join class,<br>contact admin ASAP!
       </p>`;
   }
 });
