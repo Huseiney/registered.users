@@ -33,7 +33,7 @@ document.getElementById("accessForm").addEventListener("submit", function (e) {
     responseDiv.innerHTML = `
       <p style="color: green;">
         🎉 This username belongs to the Admin. You are only allowed to use if yours is not working.<br>
-        <a href="#" target="_blank" style="color: white; background-color: gold; text-decoration: none; border-radius: 20px; border-color: red; border-style: groove;">Join Class Now</a>
+        <a href="#" target="_blank" style="color: white; background-color: red; font-size: large; text-decoration: none; border-radius: 50px; border-color: white; border-style: double;">Join Class Now</a>
       </p>`;
     return;
   }
@@ -46,7 +46,7 @@ document.getElementById("accessForm").addEventListener("submit", function (e) {
         <p style="color: green;">
           🎉 Congratulations, ${username}! You are registered!<br>
           Welcome to the class.<br>
-          <a href="#" target="_blank" style="color: white; background-color: gold; text-decoration: none; border-radius: 20px; border-color: red; border-style: groove;">Join Class Now</a>
+          <a href="#" target="_blank" style="color: white; background-color: red; font-size: large; text-decoration: none; border-radius: 50px; border-color: white; border-style: double;">Join Class Now</a>
         </p>`;
     } else {
       const remainingTime = Math.ceil((18000000 - (new Date().getTime() - usedUsernames[username])) / 3600000);
