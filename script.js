@@ -59,7 +59,7 @@ document.getElementById("accessForm").addEventListener("submit", function (e) {
   } else {
     responseDiv.innerHTML = `
       <p style="color: red;">
-        🚫 Sorry, this ${username} is not registered. Please register to receive a unique username, it's just 1000 KES. Thank you.
+        🚫 Sorry, this ${username} is not registered. Please register to receive a unique username. It's just 1000 KES. Thank you.
       </p>`;
   }
 });
