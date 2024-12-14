@@ -28,7 +28,7 @@ document.getElementById("accessForm").addEventListener("submit", function (e) {
   if (username === masterUsername) {
     responseDiv.innerHTML = `
       <p style="color: green;">
-        🎉 This username belongs to the Admin. You are only allowed to use it if yours is not working.<br>
+        🎉 This username belongs to the Admin.<br>
         ${joinClassLink}
       </p>`;
     return;
@@ -39,7 +39,6 @@ document.getElementById("accessForm").addEventListener("submit", function (e) {
     responseDiv.innerHTML = `
       <p style="color: green;">
         🎉 Congratulations, ${username}! You are registered!<br>
-        Welcome to the class.<br>
         ${joinClassLink}
       </p>`;
   } else {
