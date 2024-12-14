@@ -34,24 +34,14 @@ document.getElementById("accessForm").addEventListener("submit", function (e) {
     return;
   }
 
+  // Handle regular registered users
   if (registeredUsers.includes(username)) {
-    if (canReuseUsername(username)) {
-      usedUsernames[username] = new Date().getTime(); // Record the current timestamp
-      saveUsedUsernames(); // Persist the used usernames to localStorage
-      responseDiv.innerHTML = `
-        <p style="color: green;">
-          🎉 Congratulations, ${username}! You are registered!<br>
-          Welcome to the class.<br>
-          ${joinClassLink}
-        </p>`;
-    } else {
-      const remainingTime = Math.ceil((18000000 - (new Date().getTime() - usedUsernames[username])) / 3600000);
-      responseDiv.innerHTML = `
-        <p style="color: orange;">
-          ⚠️ Sorry, ${username} has already been used to access the link.<br>
-          Please wait ${remainingTime} hour(s) before trying again.<br> or contact support.
-        </p>`;
-    }
+    responseDiv.innerHTML = `
+      <p style="color: green;">
+        🎉 Congratulations, ${username}! You are registered!<br>
+        Welcome to the class.<br>
+        ${joinClassLink}
+      </p>`;
   } else {
     responseDiv.innerHTML = `
       <p style="color: red;">
