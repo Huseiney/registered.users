@@ -1,26 +1,22 @@
 // Registered usernames and the master username
-const registeredUsers = ["ab34", "zl23", "jn21", "dd22", "ds54", "ss27", "vv54"];
+const registeredUsers = ["ab34", "zl23", "jn21", "dd22", "ds54", "ss27", "vv54", "bv65"];
 const masterUsername = "master8081";
 
-// Load used usernames from localStorage
-const usedUsernames = JSON.parse(localStorage.getItem("usedUsernames")) || {};
-
-// Function to save used usernames to localStorage
-function saveUsedUsernames() {
-  localStorage.setItem("usedUsernames", JSON.stringify(usedUsernames));
-}
-
-// Function to check if a username is reusable
-function canReuseUsername(username) {
-  if (username === masterUsername) return true; // Allow master username to be reused anytime
-  if (!usedUsernames[username]) return true; // Username has not been used before
-
-  const lastUsedTime = usedUsernames[username];
-  const currentTime = new Date().getTime();
-
-  // Check if 5 hours (18000000 milliseconds) have passed since last use
-  return currentTime - lastUsedTime >= 18000000;
-}
+// Common styling for the "Join Class Now" link
+const joinClassLink = `
+  <a href="#" target="_blank" 
+     style="
+       color: white; 
+       background-color: red; 
+       font-size: larger; 
+       font-family: fantasy; 
+       padding: 10px; 
+       text-decoration: none; 
+       border-radius: 50px 60px; 
+       border: double 3px blue;
+     ">
+    Join Class Now
+  </a>`;
 
 // Event listener for form submission
 document.getElementById("accessForm").addEventListener("submit", function (e) {
@@ -32,8 +28,8 @@ document.getElementById("accessForm").addEventListener("submit", function (e) {
   if (username === masterUsername) {
     responseDiv.innerHTML = `
       <p style="color: green;">
-        🎉 This username belongs to the Admin. You are only allowed to use if yours is not working.<br>
-        <a href="#" target="_blank" style="color: white; background-color: red; font-size: larger; font-family: fantasy; padding:10px; text-decoration: none; border-radius: 50px 60px; border-color: blue; border-style: double;">Join Class Now</a>
+        🎉 This username belongs to the Admin. You are only allowed to use it if yours is not working.<br>
+        ${joinClassLink}
       </p>`;
     return;
   }
@@ -46,7 +42,7 @@ document.getElementById("accessForm").addEventListener("submit", function (e) {
         <p style="color: green;">
           🎉 Congratulations, ${username}! You are registered!<br>
           Welcome to the class.<br>
-          <a href="#" target="_blank" style="color: white; background-color: red; font-size: larger; font-family: fantasy; padding: 10px; text-decoration: none; border-radius: 50px 60px; border-color: blue; border-style: double;">Join Class Now</a>
+          ${joinClassLink}
         </p>`;
     } else {
       const remainingTime = Math.ceil((18000000 - (new Date().getTime() - usedUsernames[username])) / 3600000);
@@ -59,7 +55,7 @@ document.getElementById("accessForm").addEventListener("submit", function (e) {
   } else {
     responseDiv.innerHTML = `
       <p style="color: red;">
-        🚫 Sorry, the ${username} is not registered. Please register to receive a unique username. It's just 1000 KES. Thank you.
+        🚫 Sorry, ${username} is not registered. Please register to receive a unique username. It's just 1000 KES. Thank you.
       </p>`;
   }
 });
