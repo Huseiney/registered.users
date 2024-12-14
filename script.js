@@ -2,18 +2,23 @@
 const registeredUsers = ["ab34", "zl23", "jn21", "dd22", "ds54", "ss27", "vv54", "bv65"];
 const masterUsername = "master8081";
 
-// Common styling for the "Join Class Now" link
+// Google Meet Link (replace with your actual meeting link)
+const googleMeetLink = "#";
+
+// Compact "Join Class Now" Button Styling
 const joinClassLink = `
-  <a href="#" target="_blank" 
+  <a href="${googleMeetLink}" target="_blank" 
      style="
        color: white; 
-       background-color: red; 
-       font-size: larger; 
-       font-family: fantasy; 
-       padding: 10px; 
+       background-color: #0078ff; 
+       font-size: 14px; 
+       font-family: Arial, sans-serif; 
+       padding: 8px 20px; 
        text-decoration: none; 
-       border-radius: 50px 60px; 
-       border: double 3px blue;
+       border-radius: 20px; 
+       border: 1px solid #005bb5;
+       display: inline-block;
+       margin-top: 10px;
      ">
     Join Class Now
   </a>`;
@@ -24,7 +29,6 @@ document.getElementById("accessForm").addEventListener("submit", function (e) {
   const username = document.getElementById("username").value.trim();
   const responseDiv = document.getElementById("response");
 
-  // Handle master username explicitly
   if (username === masterUsername) {
     responseDiv.innerHTML = `
       <p style="color: green;">
@@ -34,11 +38,11 @@ document.getElementById("accessForm").addEventListener("submit", function (e) {
     return;
   }
 
-  // Handle regular registered users
   if (registeredUsers.includes(username)) {
     responseDiv.innerHTML = `
       <p style="color: green;">
         🎉 Congratulations, ${username}! You are registered!<br>
+        Welcome to the class.<br>
         ${joinClassLink}
       </p>`;
   } else {
