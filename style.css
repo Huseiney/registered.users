@@ -8,11 +8,13 @@
 
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   background: linear-gradient(135deg, #0078ff, #00d4ff);
   color: #ffffff;
+  position: relative;
 }
 
 /* Container Styling */
@@ -94,6 +96,9 @@ footer {
   margin-top: 20px;
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.8);
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
 }
 
 /* Keyframe Animations */
