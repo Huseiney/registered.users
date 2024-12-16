@@ -1,5 +1,5 @@
 // Registered usernames and the master username
-const registeredUsers = ["ab34", "zl23", "jn21", "dd22", "ds54", "ss27", "vv54", "bv65", "zk49"];
+const registeredUsers = ["ab34", "zl23", "jn21", "dd22", "ds54", "ss27", "vv54", "bv65", "zk49", "dg88"];
 const masterUsername = "master8081";
 
 // Google Meet Link (replace with your actual meeting link)
