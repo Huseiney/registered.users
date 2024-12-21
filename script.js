@@ -32,7 +32,7 @@ document.getElementById("accessForm").addEventListener("submit", function (e) {
   if (username === masterUsername) {
     responseDiv.innerHTML = `
       <p style="color: green;">
-        🎉 This username belongs to the Admin.<br>
+        🎉 This username belongs to the Admin. You are only allowed to use it once.<br>
         ${joinClassLink}
       </p>`;
     return;
@@ -41,14 +41,13 @@ document.getElementById("accessForm").addEventListener("submit", function (e) {
   if (registeredUsers.includes(username)) {
     responseDiv.innerHTML = `
       <p style="color: green;">
-        🎉 Congratulations, ${username}! You are registered!<br>
+        🎉 Congratulations, ${username}! Thabk you for registering!<br>
         Welcome to the class.<br>
         ${joinClassLink}
       </p>`;
   } else {
     responseDiv.innerHTML = `
       <p style="color: red;">
-        🚫 Sorry, ${username} is not registered. Please register to receive a unique username. It's just 1000 KES. Thank you.
-      </p>`;
+        🚫 Sorry, ${username} is not registered. Pleasecontact admin or try again.</p>`;
   }
 });
