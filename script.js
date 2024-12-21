@@ -48,6 +48,6 @@ document.getElementById("accessForm").addEventListener("submit", function (e) {
   } else {
     responseDiv.innerHTML = `
       <p style="color: red;">
-        🚫 Sorry, ${username} is not registered. Pleasecontact admin or try again.</p>`;
+        🚫 Sorry, ${username} is not registered. Please contact admin or try again.</p>`;
   }
 });
