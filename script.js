@@ -41,7 +41,7 @@ document.getElementById("accessForm").addEventListener("submit", function (e) {
   if (registeredUsers.includes(username)) {
     responseDiv.innerHTML = `
       <p style="color: green;">
-        🎉 Congratulations, ${username}! Thabk you for registering!<br>
+        🎉 Congratulations, ${username}! Thank you for registering!<br>
         Welcome to the class.<br>
         ${joinClassLink}
       </p>`;
