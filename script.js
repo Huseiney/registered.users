@@ -3,7 +3,7 @@ const registeredUsers = ["ab34", "zl23", "jn21", "dd22", "ds54", "ss27", "vv54",
 const masterUsername = "master8081";
 
 // Google Meet Link (replace with your actual meeting link)
-const googleMeetLink = "https://meet.google.com/mtx-cktn-apa";
+const googleMeetLink = "meet.google.com/qki-iiej-ods";
 
 // Compact "Join Class Now" Button Styling
 const joinClassLink = `
